@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "module":"CommonJS",
+    "target": "ES5",
+    "lib": ["ES2015","DOM"],
+    "esModuleInterop": true, 
+  }
+}
