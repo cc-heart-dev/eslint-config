@@ -31,6 +31,6 @@ module.exports = {
   addPrefixZero
 }
 
-// 只要文件存在 import 或 export 关键字，都被视为 module
+
 export {}
 
