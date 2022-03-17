@@ -8,8 +8,21 @@ function formatMoney(str: string) {
   })
 }
 
-function formatMoney_a(str) {
-  const reg = /(?!^)(?<![\-+])(?!=\.\d*)((?<!\.\d*))(?=(\d{3})+(\.|$))/g
+function formatMoney_a(str: string) {
+  const reg = /(?!^)(?<![\-+])((?<!\.\d*))(?=(\d{3})+(\.|$))/g
   return str.replace(reg, ',')
 }
 export { formatMoney, formatMoney_a }
+
+// 判断字符串是否是纯数字
+export function checkDigit(str: string): boolean {
+  const reg = /^(\d*\.{0,1}\d*)$/
+  return reg.test(str)
+}
+
+//获取小数点后的数字
+export function radixPointDigit(str: string): string | null {
+  const reg = /\.(\d.*)/
+  const e = str.match(reg)
+  return e && e[1] || null
+}
