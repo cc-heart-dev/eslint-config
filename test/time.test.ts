@@ -11,6 +11,10 @@ test('format addPrefixZero', () => {
   expect(addPrefixZero(2022, 4)).toBe('2022')
 })
 
+test('inital params', () => {
+  expect(addPrefixZero()).toBe('0')
+})
+
 test('format today time to yyyy-MM-dd', () => {
   const date = new Date()
   expect(formatDate()).toBe(

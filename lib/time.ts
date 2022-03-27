@@ -3,12 +3,11 @@
  * @param
  */
 
-function addPrefixZero(number: number = 0, target: number = 0): string | null {
-  if (number === 0 && target === 0) return null
+function addPrefixZero(number: number = 0, target: number = 0): string {
+  if (number === 0 || target === 0) return '0'
   const count: number = (number + '').length
   if (count < target) {
     let tempString: string = number + ''
-    if (tempString.length < target) {
       const reg = new RegExp(`^(?=\\d{${tempString.length}}$)`, 'g')
       const gapValue: number = target - tempString.length
       tempString.replace(reg, function () {
@@ -18,9 +17,8 @@ function addPrefixZero(number: number = 0, target: number = 0): string | null {
         return ans
       })
       return tempString
-    }
   }
-  return number + ''
+    return (number + '').slice(0, target)
 }
 
 function formatDate(): string {

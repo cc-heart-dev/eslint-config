@@ -21,8 +21,32 @@ export function checkDigit(str: string): boolean {
 }
 
 //获取小数点后的数字
-export function radixPointDigit(str: string): string | null {
+export function radixPointDigit(str: string): number {
   const reg = /\.(\d.*)/
   const e = str.match(reg)
-  return e && e[1] || null
+  return e && Number.parseInt(e[1]) || 0
+}
+
+/**
+ * 替换任意文件名
+ * @param path 
+ * @param replaceName 
+ * @returns 
+ */
+export function replaceFileName(path: string, replaceName: string): string | null {
+  const reg = /\//g
+  const regs = /(.*)\.(.*)$/
+  if (reg.test(path)) {
+    const pathArr = path.split('/')
+    const result = pathArr[pathArr.length - 1].match(regs)
+    if (result) {
+      pathArr[pathArr.length - 1] = pathArr[pathArr.length - 1].replace(result[1], replaceName)
+      return pathArr.join('/')
+    }
+  } else {
+    if (regs.test(path)) {
+      return path.replace(RegExp.$1, replaceName)
+    }
+  }
+  return null;
 }
