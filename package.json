@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/preset-env": "^7.16.11",
+    "@type-challenges/utils": "^0.1.1",
     "@types/jest": "^27.4.0",
     "@types/node": "^17.0.17",
     "jest": "^27.5.1",
