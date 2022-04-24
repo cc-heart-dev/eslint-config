@@ -24,14 +24,14 @@ export function checkDigit(str: string): boolean {
 export function radixPointDigit(str: string): number {
   const reg = /\.(\d.*)/
   const e = str.match(reg)
-  return e && Number.parseInt(e[1]) || 0
+  return (e && Number.parseInt(e[1])) || 0
 }
 
 /**
  * 替换任意文件名
- * @param path 
- * @param replaceName 
- * @returns 
+ * @param path
+ * @param replaceName
+ * @returns
  */
 export function replaceFileName(path: string, replaceName: string): string | null {
   const reg = /\//g
@@ -48,5 +48,5 @@ export function replaceFileName(path: string, replaceName: string): string | nul
       return path.replace(RegExp.$1, replaceName)
     }
   }
-  return null;
+  return null
 }
