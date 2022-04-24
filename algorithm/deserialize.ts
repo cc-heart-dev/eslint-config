@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /**
  * @author heart
  * @description 迷你词法分析器
@@ -50,7 +51,7 @@ class NestedInteger {
 function deserialize(s: string): NestedInteger {
   let ans
   let header = ans
-  let arr = [] // 栈结构
+  const arr = [] // 栈结构
   if (s.charAt(0) !== '[') {
     ans = new NestedInteger(Number.parseFloat(s))
     arr.push(ans)
@@ -62,7 +63,7 @@ function deserialize(s: string): NestedInteger {
       header = ans
       arr.push(ans)
     } else if (s.charAt(i) == '[') {
-      let temp = new NestedInteger()
+      const temp = new NestedInteger()
       ans.add(temp)
       ans = temp
       arr.push(temp) //只是一个栈结构
