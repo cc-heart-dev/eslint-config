@@ -22,7 +22,7 @@ let str = "{'book':{'name':'JAVA编程','author':['Liu','Xu']},'num':222}"
 // var regEnter = /(?<=^\{)/g
 // var regEnter = /(?<=[\}\:|\[|\]])/g
 // 后置切换
-const nextEnter = /(?<=[\{\[\,\]])/g
+const nextEnter = /(?<=[{[,\]])/g
 
 console.log(nextEnter.exec("{'book':{'name':'JAVA编程','author':['Liu','Xu']},'num':222}"))
 
@@ -32,7 +32,7 @@ const preEnter = /(?=\]|\}$)/g
 str = str.replace(nextEnter, '\n').replace(preEnter, '\n')
 
 // 正则缩进格式
-const spaceRegexp = /(?<=[\{\,\[]\s+)(?=[\'\"])/g
+const spaceRegexp = /(?<=[{,[]\s+)(?=['"])/g
 console.log((str = str.replace(spaceRegexp, '\t')))
 
 // 设置缩进格式 使用递归实现JSON格式化
