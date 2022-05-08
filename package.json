@@ -1,0 +1,25 @@
+{
+  "name": "ts-template-tool",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "author": "heart",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "jest": "^28.0.3",
+    "prettier": "^2.6.2",
+    "typescript": "^4.6.4",
+    "@babel/preset-env": "^7.16.11",
+    "@type-challenges/utils": "^0.1.1",
+    "@types/node": "^17.0.17",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "@babel/preset-typescript": "^7.16.7"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
