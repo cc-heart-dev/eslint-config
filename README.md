@@ -1,3 +1,5 @@
 # typescript learn
 
 - generics
+
+- DailyTestTool
