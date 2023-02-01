@@ -11,5 +11,8 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
   },
-  rules: {},
+  ignorePatterns: [".eslintrc.js", "**/node_modules/**/*", "**/dist/**/*"],
+  rules: {
+    '@typescript-eslint/no-explicit-any': 0 
+  },
 };
