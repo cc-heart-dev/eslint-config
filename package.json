@@ -1,7 +1,7 @@
 {
   "name": "@cc-heart/eslint-config",
-  "version": "0.0.2",
-  "description": "personal eslint config",
+  "version": "0.0.3",
+  "description": "eslint config",
   "main": "index.js",
   "author": "cc-heart",
   "license": "MIT",
