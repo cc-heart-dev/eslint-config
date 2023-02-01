@@ -1,0 +1,21 @@
+{
+  "name": "@cc-heart/eslint-config",
+  "version": "0.0.2",
+  "description": "personal eslint config",
+  "main": "index.js",
+  "author": "cc-heart",
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "peerDependencies": {
+    "eslint": ">=7.4.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1"
+  }
+}
