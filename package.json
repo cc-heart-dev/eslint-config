@@ -1,6 +1,6 @@
 {
   "name": "@cc-heart/eslint-config",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "eslint config",
   "main": "index.js",
   "author": "cc-heart",
@@ -9,7 +9,11 @@
     "index.js"
   ],
   "scripts": {
-    "lint": "eslint ."
+    "lint": "npx eslint ."
+  },
+  "exports": {
+    ".": "./index.js",
+    "./vue-ts": "./vue-ts-eslint.js"
   },
   "peerDependencies": {
     "eslint": ">=7.4.0"
