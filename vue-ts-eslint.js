@@ -11,6 +11,7 @@ module.exports = {
   },
   ignorePatterns,
   rules: {
-    '@typescript-eslint/no-explicit-any': 0
+    '@typescript-eslint/no-explicit-any': 0,
+    "no-undef": "off", // supports unplugin-auto-imports
   },
 };
