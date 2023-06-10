@@ -1,6 +1,6 @@
 {
   "name": "@cc-heart/eslint-config",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "eslint config",
   "main": "index.js",
   "author": "cc-heart",
@@ -8,20 +8,24 @@
   "files": [
     "index.js",
     "config.js",
-    "vue-ts-eslint.js"
+    "vue-ts-eslint.js",
+    "react-ts-eslint.js"
   ],
   "scripts": {
     "lint": "npx eslint ."
   },
   "exports": {
     ".": "./index.js",
-    "./vue-ts": "./vue-ts-eslint.js"
+    "./vue-ts": "./vue-ts-eslint.js",
+    "./react-ts": "./react-ts-eslint.js"
   },
   "peerDependencies": {
     "eslint": ">=7.4.0"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.47.1",
-    "@typescript-eslint/parser": "^5.47.1"
+    "@typescript-eslint/parser": "^5.47.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.1"
   }
 }
