@@ -13,5 +13,6 @@ module.exports = {
   rules: {
     '@typescript-eslint/no-explicit-any': 0,
     "no-undef": "off", // supports unplugin-auto-imports
+    '@typescript-eslint/consistent-type-imports': 'error', // 当只引用类型时，自动加上 type 操作符
   },
 };
