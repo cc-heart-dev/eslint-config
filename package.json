@@ -9,7 +9,8 @@
     "index.js",
     "config.js",
     "vue-ts-eslint.js",
-    "react-ts-eslint.js"
+    "react-ts-eslint.js",
+    "vue2-eslint.js"
   ],
   "scripts": {
     "lint": "npx eslint ."
@@ -17,7 +18,8 @@
   "exports": {
     ".": "./index.js",
     "./vue-ts": "./vue-ts-eslint.js",
-    "./react-ts": "./react-ts-eslint.js"
+    "./react-ts": "./react-ts-eslint.js",
+    "./vue2-eslint": "./vue2-eslint.js"
   },
   "peerDependencies": {
     "eslint": ">=7.4.0"
