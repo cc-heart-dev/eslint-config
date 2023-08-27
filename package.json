@@ -1,6 +1,6 @@
 {
   "name": "@cc-heart/eslint-config",
-  "version": "0.0.10",
+  "version": "1.0.0",
   "description": "eslint config",
   "main": "index.js",
   "author": "cc-heart",
