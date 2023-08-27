@@ -1,4 +1,4 @@
-const { ignorePatterns, env } = require('./config')
+const { ignorePatterns, env, baseRules } = require("./config");
 
 module.exports = {
   env,
@@ -10,8 +10,12 @@ module.exports = {
   },
   ignorePatterns,
   rules: {
+    ...baseRules,
     "object-curly-spacing": ["error", "always"],
-    "key-spacing": ["error", { singleLine: { "beforeColon": false, "afterColon": true }}],
-    '@typescript-eslint/no-explicit-any': 0,
+    "key-spacing": [
+      "error",
+      { singleLine: { beforeColon: false, afterColon: true } },
+    ],
+    "@typescript-eslint/no-explicit-any": 0,
   },
 };

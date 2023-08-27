@@ -1,3 +1,5 @@
+const { baseRules } = require("./config");
+
 module.exports = {
   env: {
     browser: true,
@@ -5,25 +7,26 @@ module.exports = {
     jest: true,
   },
   extends: [
-    'plugin:vue/essential',
-    'airbnb-base',
-    'plugin:prettier/recommended',
-    'prettier',
+    "plugin:vue/essential",
+    "airbnb-base",
+    "plugin:prettier/recommended",
+    "prettier",
   ],
-  plugins: ['prettier', 'vue'],
-  parser: 'vue-eslint-parser',
+  plugins: ["prettier", "vue"],
+  parser: "vue-eslint-parser",
   parserOptions: {
     // 如果用到了babel 这里这里配置
     // parser: 'babel-eslint',
     ecmaVersion: 6,
-    sourceType: 'module',
+    sourceType: "module",
     ecmaFeatures: {
       module: true,
     },
   },
   rules: {
-    'no-useless-concat': 0,
-    'no-console': 0,
-    'import/no-unresolved': [2, { caseSensitive: false }],
+    ...baseRules,
+    "no-useless-concat": 0,
+    "no-console": 0,
+    "import/no-unresolved": [2, { caseSensitive: false }],
   },
 };
