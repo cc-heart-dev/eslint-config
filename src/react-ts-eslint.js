@@ -1,4 +1,4 @@
-const { ignorePatterns, env, baseRules } = require("./config");
+const { ignorePatterns, env } = require("./typescript-config");
 
 module.exports = {
   env,
@@ -12,7 +12,6 @@ module.exports = {
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },
   ignorePatterns,
   rules: {
-    ...baseRules,
     "@typescript-eslint/no-explicit-any": 0,
   },
 };

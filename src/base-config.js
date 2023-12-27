@@ -7,17 +7,12 @@ const ignorePatterns = [
 
 const env = {
   browser: true,
-  es2021: true,
+  esnext: true,
   node: true,
   jest: true,
-};
-
-const baseRules = {
-  "@typescript-eslint/no-extra-semi": "off",
 };
 
 module.exports = {
   ignorePatterns,
   env,
-  baseRules,
 };

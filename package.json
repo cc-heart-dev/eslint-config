@@ -3,23 +3,16 @@
   "version": "1.0.0",
   "description": "eslint config",
   "main": "index.js",
-  "author": "cc-heart",
+  "author": "cc heart",
   "license": "MIT",
-  "files": [
-    "index.js",
-    "config.js",
-    "vue-ts-eslint.js",
-    "react-ts-eslint.js",
-    "vue2-eslint.js"
-  ],
   "scripts": {
     "lint": "npx eslint ."
   },
   "exports": {
-    ".": "./index.js",
-    "./vue-ts": "./vue-ts-eslint.js",
-    "./react-ts": "./react-ts-eslint.js",
-    "./vue2-eslint": "./vue2-eslint.js"
+    "./typescript-eslint": "./src/typescript-config.js",
+    "./vue3-typescript-eslint": "./src/vue-ts-eslint.js",
+    "./react-typescript-eslint": "./src/react-ts-eslint.js",
+    "./vue2-eslint": "./src/vue2-eslint.js"
   },
   "peerDependencies": {
     "eslint": ">=7.4.0"
@@ -28,6 +21,7 @@
     "@typescript-eslint/eslint-plugin": "^5.47.1",
     "@typescript-eslint/parser": "^5.47.1",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.1"
+    "eslint-plugin-react-refresh": "^0.4.1",
+    "eslint-plugin-vue": "^9.19.2"
   }
 }

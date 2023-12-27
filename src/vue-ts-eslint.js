@@ -1,4 +1,4 @@
-const { ignorePatterns, env, baseRules } = require("./config");
+const { ignorePatterns, env } = require("./config");
 
 module.exports = {
   env,
@@ -12,9 +12,9 @@ module.exports = {
   },
   ignorePatterns,
   rules: {
-    ...baseRules,
     "@typescript-eslint/no-explicit-any": 0,
     "no-undef": "off", // supports unplugin-auto-imports
     "@typescript-eslint/consistent-type-imports": "error", // 当只引用类型时，自动加上 type 操作符
+    "vue/component-name-in-template-casing": ["error", "kebab-case"],
   },
 };

@@ -1,5 +1,3 @@
-const { baseRules } = require("./config");
-
 module.exports = {
   env: {
     browser: true,
@@ -24,7 +22,6 @@ module.exports = {
     },
   },
   rules: {
-    ...baseRules,
     "no-useless-concat": 0,
     "no-console": 0,
     "import/no-unresolved": [2, { caseSensitive: false }],

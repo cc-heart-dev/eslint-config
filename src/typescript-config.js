@@ -1,4 +1,4 @@
-const { ignorePatterns, env, baseRules } = require("./config");
+const { ignorePatterns, env } = require("./base-config");
 
 module.exports = {
   env,
@@ -10,7 +10,7 @@ module.exports = {
   },
   ignorePatterns,
   rules: {
-    ...baseRules,
+    "@typescript-eslint/no-extra-semi": "off",
     "object-curly-spacing": ["error", "always"],
     "key-spacing": [
       "error",
