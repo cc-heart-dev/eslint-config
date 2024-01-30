@@ -1,4 +1,4 @@
-const { ignorePatterns, env } = require("./config");
+const { ignorePatterns, env } = require("./base-config");
 
 module.exports = {
   env,
