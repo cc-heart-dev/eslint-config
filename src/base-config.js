@@ -7,7 +7,6 @@ const ignorePatterns = [
 
 const env = {
   browser: true,
-  esnext: true,
   node: true,
   jest: true,
 };
