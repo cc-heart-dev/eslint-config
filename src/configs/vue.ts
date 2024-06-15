@@ -65,7 +65,7 @@ export function vue3(options: Options & VueOptions) {
         'vue/block-order': ['error', {
           order: ['script', 'template', 'style'],
         }],
-
+        'vue/comment-directive': 'off',
         'vue/component-name-in-template-casing': ['error', 'PascalCase'],
         'vue/component-options-name-casing': ['error', 'PascalCase'],
         // this is deprecated
