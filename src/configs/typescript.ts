@@ -18,6 +18,8 @@ export function typescript(options: Options = {}) {
       languageOptions: {
         parser: TsParser,
         parserOptions: {
+          project: true,
+          tsconfigRootDir: process.cwd(),
           sourceType: 'module',
         },
 
