@@ -1,5 +1,6 @@
-import { Options } from "../types.js";
+import { Options } from "../types";
 import { useName } from "../utils.js";
+import { pluginUnusedImports } from "../plugins.js";
 import globals from 'globals'
 
 export function javascript(options: Options = {}) {
@@ -35,6 +36,9 @@ export function javascript(options: Options = {}) {
     {
       name: useName('javascript', 'rules'),
       files: ['**/*.js'],
+      plugins: {
+        'unused-imports': pluginUnusedImports
+      },
       rules: {
         'eqeqeq': ['error', 'smart'],
         'accessor-pairs': 'error',
