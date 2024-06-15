@@ -1,7 +1,7 @@
 import { Options } from "../types";
 import { useName } from "../utils.js";
 import { pluginUnusedImports } from "../plugins.js";
-import { baseIgnores } from "../constant.js";
+import { baseIgnorePatterns } from "../constant.js";
 import { baseRules } from "./base-rule.js";
 import globals from 'globals'
 
@@ -11,7 +11,7 @@ export function javascript(options: Options = {}) {
   return [
     {
       name: useName('javascript', 'setup'),
-      ignores: [...baseIgnores, ...ignores],
+      ignores: [...baseIgnorePatterns, ...ignores],
       languageOptions: {
         ecmaVersion: 2022,
         globals: {

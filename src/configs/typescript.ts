@@ -1,9 +1,10 @@
 import TsPlugin from '@typescript-eslint/eslint-plugin'
 import TsParser from '@typescript-eslint/parser'
 import { renameRules, useName } from "../utils.js";
-import { baseIgnores } from '../constant.js';
+import { baseIgnorePatterns } from '../constant.js';
 import { type Options } from '../types';
 import { baseRules } from "./base-rule.js";
+import { pluginUnusedImports } from '../plugins.js';
 
 export function typescript(options: Options = {}) {
   const { ignores = [], overrides = {}, languageOptionsOverrides = {} } = options
@@ -12,7 +13,7 @@ export function typescript(options: Options = {}) {
   return [
     {
       name: useName('typescript', 'setup'),
-      ignores: [...baseIgnores, ...ignores],
+      ignores: [...baseIgnorePatterns, ...ignores],
       languageOptions: {
         parser: TsParser,
         parserOptions: {
@@ -22,7 +23,8 @@ export function typescript(options: Options = {}) {
         ...languageOptionsOverrides
       },
       plugins: {
-        ts: TsPlugin
+        ts: TsPlugin,
+        'unused-imports': pluginUnusedImports
       }
     },
     {
@@ -56,6 +58,21 @@ export function typescript(options: Options = {}) {
         'ts/consistent-type-exports': ['error'],
         ...overrides
       }
+    },
+    {
+      files: ['**/*.d.?([cm])ts'],
+      name: useName('typescript', 'dts'),
+      rules: {
+        'no-restricted-syntax': 'off',
+        'unused-imports/no-unused-vars': 'off',
+      },
+    },
+    {
+      files: ['**/*.{test,spec}.ts?(x)'],
+      name: useName('typescript', 'test'),
+      rules: {
+        'no-unused-expressions': 'off',
+      },
     }
   ]
 }

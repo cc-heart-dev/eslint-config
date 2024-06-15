@@ -1,5 +1,9 @@
-export const prefix = 'cc'
+export let prefix = 'cc-heart'
 
-export const baseIgnores = [
+export const baseIgnorePatterns = [
   '**/node_modules/',
 ]
+
+export function defineNamespace(namespace: string) {
+  prefix = namespace
+}
