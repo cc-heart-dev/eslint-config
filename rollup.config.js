@@ -24,7 +24,9 @@ export default {
     'eslint-plugin-unused-imports',
     'globals',
     '@typescript-eslint/eslint-plugin',
-    '@typescript-eslint/parser'
+    '@typescript-eslint/parser',
+    'eslint-plugin-vue',
+    'vue-eslint-parser'
   ],
   // 插件
   plugins: [resolve(), commonjs(), json(), typescript(tsConfig)],

@@ -3,5 +3,9 @@ export interface Options {
   languageOptionsOverrides?: Record<string, any>
   ignores?: Array<string>
 }
+export interface VueOptions {
+  autoImport?: boolean
+  typescript?: boolean
+}
 
 export {}
