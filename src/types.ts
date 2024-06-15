@@ -3,3 +3,5 @@ export interface Options {
   languageOptionsOverrides?: Record<string, any>
   ignores?: Array<string>
 }
+
+export {}

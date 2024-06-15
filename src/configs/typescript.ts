@@ -1,4 +1,5 @@
 import TsPlugin from '@typescript-eslint/eslint-plugin'
+// @ts-ignore
 import TsParser from '@typescript-eslint/parser'
 import { renameRules, useName } from "../utils.js";
 import { baseIgnorePatterns } from '../constant.js';
