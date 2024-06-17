@@ -37,6 +37,7 @@ export function typescript(options: Options = {}) {
         ...baseRules,
         ...tsRules,
         'no-redeclare': 'off',
+        'no-use-before-define': 'off',
         'ts/no-extra-semi': 'off',
         'ts/no-explicit-any': 'off',
         'ts/no-dynamic-delete': 'off',
