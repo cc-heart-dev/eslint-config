@@ -8,7 +8,7 @@ import { baseRules } from "./base-rule.js";
 import { pluginUnusedImports } from '../plugins.js';
 
 export function typescript(options: Options = {}) {
-  const { ignores = [], overrides = {}, languageOptionsOverrides = {} } = options
+  const { ignores = [], overrides = {}, languageOptionsOverrides = {}, parserOptionsOverrides = {} } = options
   const tsRules = renameRules(TsPlugin.configs.strict.rules!, { '@typescript-eslint': 'ts' })
 
   return [
@@ -21,6 +21,7 @@ export function typescript(options: Options = {}) {
           project: true,
           tsconfigRootDir: process.cwd(),
           sourceType: 'module',
+          ...parserOptionsOverrides
         },
 
         ...languageOptionsOverrides
@@ -33,6 +34,7 @@ export function typescript(options: Options = {}) {
     {
       name: useName('typescript', 'rules'),
       files: ['**/*.?([cm])ts', '**/*.?([cm])tsx'],
+      ignores: [...baseIgnorePatterns, ...ignores],
       rules: {
         ...baseRules,
         ...tsRules,

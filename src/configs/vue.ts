@@ -8,8 +8,8 @@ import TsParser from '@typescript-eslint/parser'
 import { baseIgnorePatterns } from "../constant";
 import { baseRules } from "./base-rule.js";
 
-export function vue3(options: Options & VueOptions) {
-  const { ignores = [], overrides = {}, languageOptionsOverrides = {} } = options
+export function vue(options: Options & VueOptions = {}) {
+  const { ignores = [], overrides = {}, languageOptionsOverrides = {}, parserOptionsOverrides = {} } = options
 
   const autoImportOptions = options.autoImport ? {
     computed: 'readonly',
@@ -31,6 +31,8 @@ export function vue3(options: Options & VueOptions) {
   return [
     {
       name: useName('vue', 'setup'),
+      files: ['**/*.vue'],
+      ignores: [...baseIgnorePatterns, ...ignores],
       languageOptions: {
         globals: {
           ...autoImportOptions
@@ -53,6 +55,9 @@ export function vue3(options: Options & VueOptions) {
           extraFileExtensions: ['.vue'],
           parser: options.typescript ? TsParser : null,
           sourceType: 'module',
+          project: true,
+          tsconfigRootDir: process.cwd(),
+          ...parserOptionsOverrides
         },
         ...languageOptionsOverrides
       },
