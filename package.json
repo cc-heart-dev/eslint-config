@@ -15,7 +15,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "npx eslint .",
-    "compile": "rollup -c && tsc -p tsconfig.build.json",
+    "compile": "rimraf ./dist && rollup -c && tsc -p tsconfig.build.json",
     "playground": "npx eslint --inspect-config"
   },
   "exports": {
@@ -44,6 +44,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/node": "^20.14.2",
+    "rimraf": "^5.0.7",
     "rollup": "^4.18.0",
     "rollup-plugin-typescript2": "^0.36.0",
     "tslib": "^2.6.3",
