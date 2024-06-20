@@ -61,6 +61,7 @@ export function vue(options: Options & VueOptions = {}) {
       },
       rules: {
         ...baseRules,
+        'no-use-before-define': 'off',
         ...vuePlugin.configs.base.rules as any,
         ...vuePlugin.configs['vue3-essential'].rules as any,
         ...vuePlugin.configs['vue3-strongly-recommended'].rules as any,

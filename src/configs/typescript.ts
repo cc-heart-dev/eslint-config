@@ -14,7 +14,8 @@ export function typescript(options: Options = {}) {
   return [
     {
       name: useName('typescript', 'setup'),
-      ignores: [...baseIgnorePatterns, "**/*.vue", ...ignores],
+      files: ['**/*.?([cm])ts', '**/*.?([cm])tsx'],
+      ignores: [...baseIgnorePatterns, ...ignores],
       languageOptions: {
         parser: TsParser,
         parserOptions: {
