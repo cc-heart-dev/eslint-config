@@ -1,13 +1,14 @@
 import { VueOptions, type Options } from "../types";
 import { useName } from "../utils";
 // @ts-ignore
-import vuePlugin from 'eslint-plugin-vue'
+import VuePlugin from 'eslint-plugin-vue'
 import parserVue from 'vue-eslint-parser'
 // @ts-ignore
 import TsParser from '@typescript-eslint/parser'
 import { baseIgnorePatterns } from "../constant";
 import { baseRules } from "./base-rule.js";
 import { genTsRules } from "./shard";
+import TsPlugin from '@typescript-eslint/eslint-plugin';
 
 export function vue(options: Options & VueOptions = {}) {
   const { ignores = [], overrides = {}, languageOptionsOverrides = {}, parserOptionsOverrides = {} } = options
@@ -34,45 +35,39 @@ export function vue(options: Options & VueOptions = {}) {
 
   return [
     {
-      name: useName('vue', 'setup'),
+      name: useName('vue', 'rules'),
       files: ['**/*.vue'],
       ignores: [...baseIgnorePatterns, ...ignores],
       languageOptions: {
+        parser: parserVue,
         globals: {
           ...autoImportOptions
-        }
-      },
-      plugins: {
-        'vue': vuePlugin
-      }
-    },
-    {
-      name: useName('vue', 'rules'),
-      files: ['**/*.vue', isTs && '**/*.ts'].filter(Boolean),
-      ignores: [...baseIgnorePatterns, ...ignores],
-      languageOptions: {
-        parser: parserVue,
+        },
         parserOptions: {
           ecmaFeatures: {
             jsx: true,
           },
           extraFileExtensions: ['.vue'],
-          parser: options.typescript ? TsParser : null,
+          parser: isTs ? TsParser : null,
           sourceType: 'module',
-          project: false,
+          project: true,
           tsconfigRootDir: process.cwd(),
           ...parserOptionsOverrides
         },
         ...languageOptionsOverrides
       },
+      plugins: {
+        'ts': TsPlugin,
+        'vue': VuePlugin
+      },
       rules: {
         ...baseRules,
         'no-use-before-define': 'off',
         ...tsRules,
-        ...vuePlugin.configs.base.rules as any,
-        ...vuePlugin.configs['vue3-essential'].rules as any,
-        ...vuePlugin.configs['vue3-strongly-recommended'].rules as any,
-        ...vuePlugin.configs['vue3-recommended'].rules as any,
+        ...VuePlugin.configs.base.rules as any,
+        ...VuePlugin.configs['vue3-essential'].rules as any,
+        ...VuePlugin.configs['vue3-strongly-recommended'].rules as any,
+        ...VuePlugin.configs['vue3-recommended'].rules as any,
         'vue/block-order': ['error', {
           order: ['script', 'template', 'style'],
         }],
@@ -127,6 +122,5 @@ export function vue(options: Options & VueOptions = {}) {
         ...overrides
       }
     }
-
   ]
 }
