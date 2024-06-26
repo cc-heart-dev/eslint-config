@@ -115,6 +115,7 @@ export function vue(options: Options & VueOptions = {}) {
         'vue/require-default-prop': 'off',
         'vue/require-prop-types': 'off',
         'vue/space-infix-ops': 'error',
+        'vue/html-self-closing': 'off',
         'vue/space-unary-ops': ['error', { nonwords: false, words: true }],
         ...overrides
       }
