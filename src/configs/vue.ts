@@ -7,6 +7,7 @@ import parserVue from 'vue-eslint-parser'
 import TsParser from '@typescript-eslint/parser'
 import { baseIgnorePatterns } from "../constant";
 import { baseRules } from "./base-rule.js";
+import { genTsRules } from "./shard";
 
 export function vue(options: Options & VueOptions = {}) {
   const { ignores = [], overrides = {}, languageOptionsOverrides = {}, parserOptionsOverrides = {} } = options
@@ -28,6 +29,9 @@ export function vue(options: Options & VueOptions = {}) {
     watchEffect: 'readonly',
   } : {}
 
+  const isTs = options.typescript
+  const tsRules = isTs ? genTsRules() : {}
+
   return [
     {
       name: useName('vue', 'setup'),
@@ -44,7 +48,7 @@ export function vue(options: Options & VueOptions = {}) {
     },
     {
       name: useName('vue', 'rules'),
-      files: ['**/*.vue'],
+      files: ['**/*.vue', isTs && '**/*.ts'].filter(Boolean),
       ignores: [...baseIgnorePatterns, ...ignores],
       languageOptions: {
         parser: parserVue,
@@ -55,7 +59,7 @@ export function vue(options: Options & VueOptions = {}) {
           extraFileExtensions: ['.vue'],
           parser: options.typescript ? TsParser : null,
           sourceType: 'module',
-          project: true,
+          project: false,
           tsconfigRootDir: process.cwd(),
           ...parserOptionsOverrides
         },
@@ -64,6 +68,7 @@ export function vue(options: Options & VueOptions = {}) {
       rules: {
         ...baseRules,
         'no-use-before-define': 'off',
+        ...tsRules,
         ...vuePlugin.configs.base.rules as any,
         ...vuePlugin.configs['vue3-essential'].rules as any,
         ...vuePlugin.configs['vue3-strongly-recommended'].rules as any,
