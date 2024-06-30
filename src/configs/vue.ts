@@ -32,6 +32,13 @@ export function vue(options: Options & VueOptions = {}) {
 
   const isTs = options.typescript
   const tsRules = isTs ? genTsRules() : {}
+  const plugins = {
+    'vue': VuePlugin
+  }
+
+  if (isTs) {
+    Reflect.set(plugins, 'ts', TsPlugin)
+  }
 
   return [
     {
@@ -50,16 +57,11 @@ export function vue(options: Options & VueOptions = {}) {
           extraFileExtensions: ['.vue'],
           parser: isTs ? TsParser : null,
           sourceType: 'module',
-          project: true,
-          tsconfigRootDir: process.cwd(),
           ...parserOptionsOverrides
         },
         ...languageOptionsOverrides
       },
-      plugins: {
-        'ts': TsPlugin,
-        'vue': VuePlugin
-      },
+      plugins,
       rules: {
         ...baseRules,
         'no-use-before-define': 'off',

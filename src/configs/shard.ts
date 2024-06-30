@@ -27,6 +27,5 @@ export function genTsRules() {
     'ts/consistent-type-definitions': ['error', 'interface'],
     'ts/consistent-type-imports': ['error', { disallowTypeAnnotations: false, prefer: 'type-imports' }],
     'ts/method-signature-style': ['error', 'property'],
-    'ts/consistent-type-exports': ['error'],
   }
 }
