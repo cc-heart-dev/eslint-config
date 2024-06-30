@@ -39,6 +39,7 @@ export function vue(options: Options & VueOptions = {}) {
   if (isTs) {
     Reflect.set(plugins, 'ts', TsPlugin)
   }
+
   return [
     {
       name: useName('vue', 'rules'),
