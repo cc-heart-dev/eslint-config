@@ -14,12 +14,10 @@ export function typescript(options: Options = {}) {
   return [
     {
       name: useName('typescript', 'setup'),
-      ignores: [...baseIgnorePatterns, ...ignores],
+      ignores: [...baseIgnorePatterns, "**/*.vue", ...ignores],
       languageOptions: {
         parser: TsParser,
         parserOptions: {
-          project: true,
-          tsconfigRootDir: process.cwd(),
           sourceType: 'module',
           ...parserOptionsOverrides
         },
@@ -54,14 +52,14 @@ export function typescript(options: Options = {}) {
         'ts/no-loss-of-precision': 'error',
         'ts/no-redeclare': 'error',
         'ts/no-require-imports': 'error',
-        'ts/no-use-before-define': ['error', { classes: false, functions: false, variables: true }],
+        'ts/no-use-before-define': 'off',
         'ts/prefer-ts-expect-error': 'error',
         'ts/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
         'ts/ban-types': ['error', { types: { Function: false } }],
         'ts/consistent-type-definitions': ['error', 'interface'],
         'ts/consistent-type-imports': ['error', { disallowTypeAnnotations: false, prefer: 'type-imports' }],
         'ts/method-signature-style': ['error', 'property'],
-        'ts/consistent-type-exports': ['error'],
+        // 'ts/consistent-type-exports': ['error'],  // typeAware
         ...overrides
       }
     },

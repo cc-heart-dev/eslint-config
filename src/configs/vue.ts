@@ -55,8 +55,6 @@ export function vue(options: Options & VueOptions = {}) {
           extraFileExtensions: ['.vue'],
           parser: options.typescript ? TsParser : null,
           sourceType: 'module',
-          project: true,
-          tsconfigRootDir: process.cwd(),
           ...parserOptionsOverrides
         },
         ...languageOptionsOverrides
