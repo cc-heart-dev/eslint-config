@@ -23,7 +23,7 @@ export function genTsRules() {
     'ts/no-use-before-define': ['error', { classes: false, functions: false, variables: true }],
     'ts/prefer-ts-expect-error': 'error',
     'ts/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
-    'ts/ban-types': ['error', { types: { Function: false } }],
+    // 'ts/ban-types': ['error', { types: { Function: false } }], Deprecated
     'ts/consistent-type-definitions': ['error', 'interface'],
     'ts/consistent-type-imports': ['error', { disallowTypeAnnotations: false, prefer: 'type-imports' }],
     'ts/method-signature-style': ['error', 'property'],
